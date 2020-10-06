@@ -2,7 +2,9 @@ import Mapbox
 import UIKit
 
 class ViewController: UIViewController, MGLMapViewDelegate {
-    override func viewDidLoad() {
+   
+   // snippet(MapInit)
+   override func viewDidLoad() {
         super.viewDidLoad()
 
         let mapTilerKey = getMapTilerkey()
