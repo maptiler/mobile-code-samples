@@ -5,16 +5,27 @@ import ArgumentParser
 
 struct SnippetsExtractor: ParsableCommand {
 
-    @Argument(help: "The source code file")
-    var sourcePath: String
-
+    @Argument(help: "The root directory")
+    var rootDirectory: String
+    
     @Argument(help: "The token to search for")
     var snippetToken: String
 
     mutating func run() throws {
-        let content = try! String(contentsOfFile: sourcePath, encoding: String.Encoding.utf8)
+        
+        let parts = snippetToken.components(separatedBy: "#")
+        var fixUpRootDirectory = rootDirectory
+        if !fixUpRootDirectory.hasSuffix("/") {
+            fixUpRootDirectory.append("/")
+        }
+        let sourceFile = "\(fixUpRootDirectory)\(parts[0])"
+        
+        let content = try! String(contentsOfFile: sourceFile, encoding: String.Encoding.utf8)
         let file: File = File(content)
-        let commentValue = "snippet(\(snippetToken))"
+        
+        
+        let snippetTokenValue = parts[1]
+        let commentValue = "snippet(\(snippetTokenValue))"
         let disassembly: Disassembly = try! Disassembly(file)
 
         let snippetTokenInstance = disassembly.query.syntax
@@ -23,26 +34,35 @@ struct SnippetsExtractor: ParsableCommand {
             .one
 
         if snippetTokenInstance != nil {
-            func recurseChildrens(structures: [Structure], startIndex: Int) -> String?
+            
+            func recurseChildrens(structure: Structure, startIndex: Int) -> String?
             {
-                for structure in structures {
-                    if structure.range.lowerBound >= startIndex {
-                        return structure.contents
-                    }
-                    if !structure.substructures.isEmpty {
-                        return recurseChildrens(structures: structure.substructures, startIndex: startIndex)
+                // print("checking \(structure.contents)")
+                if structure.range.lowerBound >= startIndex  {
+                    return structure.contents
+                }
+                
+                var retVal: String? = nil;
+                if !structure.substructures.isEmpty {
+                    for sub in structure.substructures {
+                        retVal = recurseChildrens(structure: sub, startIndex: startIndex)
+                        if (retVal != nil) { return retVal }
                     }
                 }
+
                 return nil
             }
+            
             let structure = disassembly.query.structure.one!
-            let codeSnippet = recurseChildrens(structures: structure.substructures, startIndex: snippetTokenInstance!.range.upperBound)
+            let codeSnippet = recurseChildrens(structure: structure, startIndex: snippetTokenInstance!.range.upperBound)
                     
-            print(codeSnippet!)
-            return
+            if (codeSnippet != nil) {
+                print(codeSnippet!)
+                return
+            }
         }
 
-        throw ExtractorError.runtimeError("Could not find token \(snippetToken) in \(sourcePath)")
+        throw ExtractorError.runtimeError("Could not find token \(snippetTokenValue) in \(sourceFile)")
     }
 }
 

@@ -52,11 +52,11 @@
       </BuildableProductRunnable>
       <CommandLineArguments>
          <CommandLineArgument
-            argument = "&quot;/Volumes/Src/src/MapTiler/mobile-code-samples/ios-uikit/SimpleMap_UIKit/SimpleMap_UIKit/ViewController.swift&quot;"
+            argument = "&quot;/Volumes/Src/src/MapTiler/mobile-code-samples/ios-uikit/SimpleMap_UIKit/SimpleMap_UIKit&quot;"
             isEnabled = "YES">
          </CommandLineArgument>
          <CommandLineArgument
-            argument = "MapInit"
+            argument = "ViewController.swift#GetKey"
             isEnabled = "YES">
          </CommandLineArgument>
       </CommandLineArguments>

@@ -20,6 +20,7 @@ class ViewController: UIViewController, MGLMapViewDelegate {
         view.addSubview(mapView)
     }
 
+    // snippet(GetKey)
     func getMapTilerkey() -> String {
         guard let mapTilerKey = UIApplication.mapTilerKey else {
             preconditionFailure("Failed to read MapTiler key from info.plist")
