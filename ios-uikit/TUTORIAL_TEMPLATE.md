@@ -1,13 +1,13 @@
-# Tutorial template
+# Tutorial
 
 ## Test 1
 
 ```swift
-    snippet(ViewController.swift#GetKey)
+snippet(ViewController.swift#GetKey)
 ```
 
 ## Test 2
 
 ```swift
-    snippet(ViewController.swift#MapInit)
+snippet(ViewController.swift#MapInit)
 ```

@@ -1,9 +1,9 @@
-# Tutorial template
+# Tutorial
 
 ## Test 1
 
 ```swift
-    func getMapTilerkey() -> String {
+func getMapTilerkey() -> String {
         guard let mapTilerKey = UIApplication.mapTilerKey else {
             preconditionFailure("Failed to read MapTiler key from info.plist")
         }
@@ -18,7 +18,7 @@
 ## Test 2
 
 ```swift
-    func viewDidLoad() {
+func viewDidLoad() {
         super.viewDidLoad()
 
         let mapTilerKey = getMapTilerkey()

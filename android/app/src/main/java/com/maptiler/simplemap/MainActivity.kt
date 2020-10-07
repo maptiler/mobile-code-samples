@@ -8,11 +8,13 @@ import com.mapbox.mapboxsdk.maps.MapView
 class MainActivity : AppCompatActivity() {
     private var mapView: MapView? = null
 
+    // snippet(MakeStyle)
     private fun makeStyleUrl(): String {
         val mapTilerKey = "0yQuE2U15ztIZ2qNovfS"
         return  "https://api.maptiler.com/maps/streets/style.json?key=${mapTilerKey}";
     }
 
+    // snippet(MapInit)
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
@@ -53,12 +55,12 @@ class MainActivity : AppCompatActivity() {
         mapView?.onStop()
     }
 
-//    override fun onSaveInstanceState(outState: Bundle?) {
-//        super.onSaveInstanceState(outState)
-//        if (outState != null) {
-//            Mapbox.onSaveInstanceState(outState)
-//        }
-//    }
+    override fun onSaveInstanceState(outState: Bundle) {
+        super.onSaveInstanceState(outState)
+        if (outState != null) {
+            mapView?.onSaveInstanceState(outState)
+        }
+    }
 
     override fun onLowMemory() {
         super.onLowMemory()

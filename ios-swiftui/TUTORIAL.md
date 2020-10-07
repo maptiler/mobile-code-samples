@@ -1,10 +1,24 @@
-import Mapbox
-import MapKit
-import SwiftUI
+# Tutorial
 
-struct MapView: UIViewRepresentable {
-  
-    // snippet(MapInit)
+## Test 1
+
+```swift
+     class Coordinator: NSObject, MGLMapViewDelegate {
+        var control: MapView
+        
+        init(_ control: MapView) {
+            self.control = control
+        }
+
+        func mapViewDidFinishLoadingMap(_ mapView: MGLMapView) {
+            // write your custom code after map has been loaded
+        }
+    }
+```
+
+## Test 2
+
+```swift
     func makeUIView(context: Context) -> MGLMapView {
         guard let mapTilerKey = UIApplication.mapTilerKey else {
             preconditionFailure("Failed to read MapTiler key from info.plist")
@@ -22,29 +36,4 @@ struct MapView: UIViewRepresentable {
         mapView.delegate = context.coordinator
         return mapView
     }
-    
-    func updateUIView(_ uiView: MGLMapView, context: Context) {}
-    
-    func makeCoordinator() -> MapView.Coordinator {
-        Coordinator(self)
-    }
-    
-    // snippet(Coordinator)
-    final class Coordinator: NSObject, MGLMapViewDelegate {
-        var control: MapView
-        
-        init(_ control: MapView) {
-            self.control = control
-        }
-
-        func mapViewDidFinishLoadingMap(_ mapView: MGLMapView) {
-            // write your custom code after map has been loaded
-        }
-    }
-}
-
-struct MapView_Previews: PreviewProvider {
-    static var previews: some View {
-        MapView()
-    }
-}
+```
