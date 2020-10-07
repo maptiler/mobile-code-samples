@@ -1,4 +1,4 @@
-# Tutorial template
+# Tutorial
 
 ## Test 1
 
