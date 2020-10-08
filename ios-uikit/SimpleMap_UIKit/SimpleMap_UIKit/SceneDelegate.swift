@@ -1,10 +1,3 @@
-//
-//  SceneDelegate.swift
-//  SimpleMap_UIKit
-//
-//  Created by Petr Pokorny on 10/5/20.
-//
-
 import UIKit
 
 class SceneDelegate: UIResponder, UIWindowSceneDelegate {
