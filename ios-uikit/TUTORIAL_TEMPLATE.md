@@ -1,13 +1,72 @@
-# Tutorial
+# MapTiler Tutorial for iOS UIKIt/Swift
 
-## Test 1
+This tutorial describes how to create a simple iOS application using Swift and UIKit.
+
+> This tutorial was written for macOS
+
+## Create new project
+
+Open Xcode and create new project. Choose iOS -> App template. In the "Choose options for your new project" select Interface to "Storyboard", lifecycle to "UI App Delegate", language to "Swift"
+
+## Add MapBox Native SDK for iOS
+
+Add mapBox SDK to your project using CocoaPods.
+
+1. If you don't have CocoaPods installed, run `sudo gem install cocoapods`
+1. Open a terminal window, and `cd` into your project directory.
+1. Create a Podfile by running `pod init`.
+1. Add MapBox dependencies to your Podfile. The file should look as follows:
+
+    ```ruby
+        # Uncomment the next line to define a global platform for your project
+        platform :ios, '9.0'
+
+        target 'SimpleMap_UIKit' do
+        use_frameworks!
+
+        # mapBox dependencies
+        pod 'Mapbox-iOS-SDK', '6.2.1'	
+
+        end
+    ```
+
+1. Run `pod install` to download and integrate dependencies.
+1. The previous command will generate workspace file. Use it from now on. (`SimpleMap_UIKit.xcworkspace`).
+
+## MapTiler Key
+
+1. Create [MapTiler cloud](https://www.maptiler.com/cloud/) account.
+1. [Obtain the api key](https://cloud.maptiler.com/account/keys).
+1. Set the MapTilerKey property in `SimpleMap_UIKit/info.plist` to the value obtained in the previous step.
+1. Open the `SimpleMap_UIKit.xcworkspace` in Xcode and navigate to ViewController.swift. Add code to read MapTilerKey from property list.
 
 ```swift
 snippet(ViewController.swift#GetKey)
 ```
 
-## Test 2
+## Initialize Map View
+
+1. Open the `ViewController.swift` file.
+1. Add the following code in the `viewDidLoad` method in order to construct map view.
 
 ```swift
 snippet(ViewController.swift#MapInit)
 ```
+
+> If you would need to respond to MapView events, for example perform an action after MapView initialization finished, place the `MGLMapViewDelegate` protocol name after the `ViewController` name and set the MapView delegate reference to ViewController,
+> 
+>     ```swift
+>         class ViewController: UIViewController, MGLMapViewDelegate { 
+>             ...
+>         }
+>     ```
+> 
+>     and 
+> 
+>     ```swift
+>         override func viewDidLoad() {
+>             ...
+>             mapView.delegate = self
+>             ...
+>         }
+>     ```

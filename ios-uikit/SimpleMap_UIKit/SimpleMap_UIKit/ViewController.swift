@@ -7,10 +7,13 @@ class ViewController: UIViewController, MGLMapViewDelegate {
    override func viewDidLoad() {
         super.viewDidLoad()
 
+        // retrieve MapTiler key from property list
         let mapTilerKey = getMapTilerkey()
 
         title = "Simple Map"
+        // construct style URL
         let styleURL = URL(string: "https://api.maptiler.com/maps/streets/style.json?key=\(mapTilerKey)")
+        // create the map view
         let mapView = MGLMapView(frame: view.bounds, styleURL: styleURL)
         mapView.autoresizingMask = [.flexibleWidth, .flexibleHeight]
         mapView.delegate = self
@@ -22,13 +25,18 @@ class ViewController: UIViewController, MGLMapViewDelegate {
 
     // snippet(GetKey)
     func getMapTilerkey() -> String {
-        guard let mapTilerKey = UIApplication.mapTilerKey else {
+        let mapTilerKey = Bundle.main.object(forInfoDictionaryKey: "MapTilerKey") as? String
+        validateKey(mapTilerKey)
+        return mapTilerKey!
+    }
+    
+    func validateKey(_ mapTilerKey: String?) {
+        if (mapTilerKey == nil) {
             preconditionFailure("Failed to read MapTiler key from info.plist")
         }
-        let result: ComparisonResult = mapTilerKey.compare("placeholder", options: NSString.CompareOptions.caseInsensitive, range: nil, locale: nil)
+        let result: ComparisonResult = mapTilerKey!.compare("placeholder", options: NSString.CompareOptions.caseInsensitive, range: nil, locale: nil)
         if result == .orderedSame {
             preconditionFailure("Please enter correct MapTiler key in info.plist[MapTilerKey] property")
         }
-        return mapTilerKey
     }
 }
