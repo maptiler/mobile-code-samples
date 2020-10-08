@@ -25,7 +25,15 @@ fun convertFunction(node: KtNamedFunction) : FunctionNode {
 }
 
 fun convertReturnType(node: KtNamedFunction) : String {
-    return (node.typeReference?.typeElement as KtUserType?)?.referencedName ?: "Unit"
+    val elm = node.typeReference?.typeElement
+    if (elm is KtUserType) {
+        return elm?.referencedName ?: "Unit"
+    }
+    if (elm is KtNullableType) {
+        val innerType = elm?.innerType?.name ?: "Unit"
+        return "${innerType}?"
+    }
+    return "Unit"
 }
 
 fun convertParameter(node: KtParameter) : ParameterNode {

@@ -66,7 +66,7 @@ In your project, add new SwiftUI View to the SimpleMap_SwiftUI folder and name i
 1. The `UIViewRepresentable` requires to implement `makeUIViewController(context:)` method that creates the instance of with the desired UIKit view. Add the following code to create map view instance
 
     ```swift
-    func makeUIView(context: Context) -> MGLMapView {
+        func makeUIView(context: Context) -> MGLMapView {
         // read the key from property list
         let mapTilerKey = getMapTilerkey()
         validateKey(mapTilerKey)
@@ -103,7 +103,7 @@ In your project, add new SwiftUI View to the SimpleMap_SwiftUI folder and name i
 If order to to respond to map events, for example perform an action after MapView initialization finished. In SwiftUI, a `Coordinator` can be used with delegates, data sources, and user events. The `UIViewRepresentable` protocol defines `makeCoordinator()` method which creates coordinator instance. Add the following code to declare coordinator class:
 
 ```swift
-    class Coordinator: NSObject, MGLMapViewDelegate {
+     class Coordinator: NSObject, MGLMapViewDelegate {
         var control: MapView
         
         init(_ control: MapView) {
