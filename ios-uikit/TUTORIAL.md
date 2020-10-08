@@ -95,3 +95,5 @@ Add mapBox SDK to your project using CocoaPods.
 >}
 >```
 >
+
+![Application Screenshot](SimpleMap_UIKit.png "Application Screenshot")

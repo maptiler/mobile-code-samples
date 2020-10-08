@@ -71,3 +71,5 @@ snippet(ViewController.swift#MapInit)
 >}
 >```
 >
+
+![Application Screenshot](SimpleMap_UIKit.png "Application Screenshot")
