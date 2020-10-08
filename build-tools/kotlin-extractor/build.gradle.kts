@@ -30,7 +30,7 @@ tasks.withType(Jar::class) {
     manifest {
         attributes["Manifest-Version"] = "1.0"
         attributes["Main-Class"] = application.mainClassName
-        attributes["Author"] = "Petr Pokorny"
+        attributes["Author"] = "MapTiler"
     }
 
     // To add all of the dependencies
