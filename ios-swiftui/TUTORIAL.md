@@ -82,7 +82,11 @@ In your project, add new SwiftUI View to the SimpleMap_SwiftUI folder and name i
             CLLocationCoordinate2D(latitude: 47.127757, longitude: 8.579139),
             zoomLevel: 10,
             animated: false)
+        
+        // use the coordinator only if you need
+        // to respond to the map events
         mapView.delegate = context.coordinator
+        
         return mapView
     }
     ```
@@ -107,7 +111,8 @@ If order to to respond to map events, for example perform an action after MapVie
         }
 
         func mapViewDidFinishLoadingMap(_ mapView: MGLMapView) {
-            // write your custom code after map has been loaded
+            // write your custom code which will be executed
+            // after map has been loaded
         }
     }
 ```
