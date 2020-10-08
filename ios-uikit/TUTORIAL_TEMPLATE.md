@@ -53,20 +53,21 @@ snippet(ViewController.swift#GetKey)
 snippet(ViewController.swift#MapInit)
 ```
 
-> If you would need to respond to MapView events, for example perform an action after MapView initialization finished, place the `MGLMapViewDelegate` protocol name after the `ViewController` name and set the MapView delegate reference to ViewController,
+> If you would need to respond to MapView events, for example perform an action after MapView initialization finished, place the `MGLMapViewDelegate` protocol name after the `ViewController` name and set the MapView delegate reference to ViewController
 > 
->     ```swift
->         class ViewController: UIViewController, MGLMapViewDelegate { 
->             ...
->         }
->     ```
+>```swift
+>class ViewController: UIViewController, MGLMapViewDelegate { 
+>       ...
+>}
+>```
 > 
->     and 
+>and 
 > 
->     ```swift
->         override func viewDidLoad() {
->             ...
->             mapView.delegate = self
->             ...
->         }
->     ```
+>```swift
+>override func viewDidLoad() {
+>   ...
+>   mapView.delegate = self
+>   ...
+>}
+>```
+>

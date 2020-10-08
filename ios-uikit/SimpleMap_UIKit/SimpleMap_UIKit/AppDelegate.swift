@@ -32,9 +32,3 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     }
 }
 
-extension UIApplication {
-    static var mapTilerKey: String? {
-        return Bundle.main.object(forInfoDictionaryKey: "MapTilerKey") as? String
-    }
-}
-

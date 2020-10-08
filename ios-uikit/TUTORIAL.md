@@ -69,25 +69,29 @@ Add mapBox SDK to your project using CocoaPods.
         mapView.delegate = self
         mapView.logoView.isHidden = true
         // Set the map’s center coordinate and zoom level.
-        mapView.setCenter(CLLocationCoordinate2D(latitude: 47.127757, longitude: 8.579139), zoomLevel: 10, animated: false)
+        mapView.setCenter(
+            CLLocationCoordinate2D(latitude: 47.127757, longitude: 8.579139),
+            zoomLevel: 10,
+            animated: false)
         view.addSubview(mapView)
     }
 ```
 
-> If you would need to respond to MapView events, for example perform an action after MapView initialization finished, place the `MGLMapViewDelegate` protocol name after the `ViewController` name and set the MapView delegate reference to ViewController,
+> If you would need to respond to MapView events, for example perform an action after MapView initialization finished, place the `MGLMapViewDelegate` protocol name after the `ViewController` name and set the MapView delegate reference to ViewController
 > 
->     ```swift
->         class ViewController: UIViewController, MGLMapViewDelegate { 
->             ...
->         }
->     ```
+>```swift
+>class ViewController: UIViewController, MGLMapViewDelegate { 
+>       ...
+>}
+>```
 > 
->     and 
+>and 
 > 
->     ```swift
->         override func viewDidLoad() {
->             ...
->             mapView.delegate = self
->             ...
->         }
->     ```
+>```swift
+>override func viewDidLoad() {
+>   ...
+>   mapView.delegate = self
+>   ...
+>}
+>```
+>

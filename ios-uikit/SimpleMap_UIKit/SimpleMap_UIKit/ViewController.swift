@@ -19,7 +19,10 @@ class ViewController: UIViewController, MGLMapViewDelegate {
         mapView.delegate = self
         mapView.logoView.isHidden = true
         // Set the map’s center coordinate and zoom level.
-        mapView.setCenter(CLLocationCoordinate2D(latitude: 47.127757, longitude: 8.579139), zoomLevel: 10, animated: false)
+        mapView.setCenter(
+            CLLocationCoordinate2D(latitude: 47.127757, longitude: 8.579139),
+            zoomLevel: 10,
+            animated: false)
         view.addSubview(mapView)
     }
 
