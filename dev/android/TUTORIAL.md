@@ -46,7 +46,7 @@ Add MapBox SDK to your project using Maven.
 1. Open `MainActivity.kt file`. Add code to read MapTilerKey from the manifest.
 
     ```kotlin
-    private fun getMapTilerKey(): String? {
+        private fun getMapTilerKey(): String? {
         return packageManager.getApplicationInfo(
             packageName,
             PackageManager.GET_META_DATA
@@ -83,13 +83,13 @@ Add MapBox SDK to your project using Maven.
 1. Add the member variable to hold MapView instance into `MainActivity` class
 
     ```kotlin
-    private var mapView: MapView? = null
+        private var mapView: MapView? = null
     ```
 
 1. Add the following code to the `onCreate` method in order to construct map view.
 
     ```kotlin
-    override fun onCreate(savedInstanceState: Bundle?) {
+        override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
         val mapTilerKey = getMapTilerKey()

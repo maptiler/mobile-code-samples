@@ -12,5 +12,5 @@ Run the `update-markdown-documents.sh` in this folder to extract snippets from s
 
 ```bash
 cd /path/to/project-root/build-tools
-./update-markdown-documents.sh
+./publish.sh
 ```
