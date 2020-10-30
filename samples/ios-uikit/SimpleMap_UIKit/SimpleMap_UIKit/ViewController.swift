@@ -3,7 +3,6 @@ import UIKit
 
 class ViewController: UIViewController, MGLMapViewDelegate {
    
-   // snippet(MapInit)
    override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -26,7 +25,6 @@ class ViewController: UIViewController, MGLMapViewDelegate {
         view.addSubview(mapView)
     }
 
-    // snippet(GetKey)
     func getMapTilerkey() -> String {
         let mapTilerKey = Bundle.main.object(forInfoDictionaryKey: "MapTilerKey") as? String
         validateKey(mapTilerKey)

@@ -11,10 +11,8 @@ import com.mapbox.mapboxsdk.maps.MapView
 
 class MainActivity : AppCompatActivity() {
 
-    // snippet(MapViewMember)
     private var mapView: MapView? = null
 
-    // snippet(MapInit)
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
@@ -44,7 +42,6 @@ class MainActivity : AppCompatActivity() {
         }
     }
 
-    // snippet(GetKey)
     private fun getMapTilerKey(): String? {
         return packageManager.getApplicationInfo(
             packageName,
@@ -52,43 +49,36 @@ class MainActivity : AppCompatActivity() {
         ).metaData.getString("com.maptiler.simplemap.mapTilerKey")
     }
 
-    // snippet(onStart)
     override fun onStart() {
         super.onStart()
         mapView?.onStart()
     }
 
-    // snippet(onResume)
     override fun onResume() {
         super.onResume()
         mapView?.onResume()
     }
 
-    // snippet(onPause)
     override fun onPause() {
         super.onPause()
         mapView?.onPause()
     }
 
-    // snippet(onStop)
     override fun onStop() {
         super.onStop()
         mapView?.onStop()
     }
 
-    // snippet(onSaveInstanceState)
     override fun onSaveInstanceState(outState: Bundle) {
         super.onSaveInstanceState(outState)
         mapView?.onSaveInstanceState(outState)
     }
 
-    // snippet(onLowMemory)
     override fun onLowMemory() {
         super.onLowMemory()
         mapView?.onLowMemory()
     }
 
-    // snippet(onDestroy)
     override fun onDestroy() {
         super.onDestroy()
         mapView?.onDestroy()

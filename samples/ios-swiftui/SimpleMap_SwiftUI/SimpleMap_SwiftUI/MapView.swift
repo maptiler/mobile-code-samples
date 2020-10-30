@@ -4,7 +4,6 @@ import SwiftUI
 
 struct MapView: UIViewRepresentable {
   
-    // snippet(MapInit)
     func makeUIView(context: Context) -> MGLMapView {
         // read the key from property list
         let mapTilerKey = getMapTilerkey()
@@ -29,15 +28,12 @@ struct MapView: UIViewRepresentable {
         return mapView
     }
     
-    // snippet(UpdateMapView)
     func updateUIView(_ uiView: MGLMapView, context: Context) {}
     
-    // snippet(MakeCoordinator)
     func makeCoordinator() -> MapView.Coordinator {
         Coordinator(self)
     }
     
-    // snippet(Coordinator)
     final class Coordinator: NSObject, MGLMapViewDelegate {
         var control: MapView
         
@@ -51,7 +47,6 @@ struct MapView: UIViewRepresentable {
         }
     }
     
-    // snippet(GetKey)
     func getMapTilerkey() -> String {
         let mapTilerKey = Bundle.main.object(forInfoDictionaryKey: "MapTilerKey") as? String
         validateKey(mapTilerKey)

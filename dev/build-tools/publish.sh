@@ -11,6 +11,7 @@ set -o nounset
 # bin/kotlin-substitute.sh -s "$(pwd)/../android/app/src/main/java/com/maptiler/simplemap" -t "$(pwd)/../android"
 
 echo "------ Updating samples folder ------"
+rm -rf "$(pwd)/../../samples/"
 rsync -av \
     --exclude='SimpleMap_SwiftUI/Pods' \
     --exclude='SimpleMap_SwiftUI/*.xcworkspace' \
@@ -35,3 +36,6 @@ rsync -av \
     --exclude='app/build' \
     --exclude='TUTORIAL_TEMPLATE.md' \
     "$(pwd)/../android" "$(pwd)/../../samples/"
+
+#sed -i '' '/\/\/[[:space:]]*snippet\(.*\)[[:space:]]*/d' /Volumes/Src/src/MapTiler/mobile-code-samples/samples/android/app/src/main/java/com/maptiler/simplemap/MainActivity.kt
+LC_ALL=C find "$(pwd)/../../samples/" -type f -exec sed -i '' '/\/\/[[:space:]]*snippet\(.*\)[[:space:]]*/d' {} +
