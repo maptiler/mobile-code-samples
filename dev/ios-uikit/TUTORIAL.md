@@ -13,9 +13,9 @@ Open Xcode and create new project. Choose iOS -> App template. In the "Choose op
 Add MapLibre SDK to your project using Swift Package Manager.
 
 1. To add a package dependency to your Xcode project, select File > Swift Packages > Add Package Dependency and enter its repository URL. You can also navigate to your target’s General pane, and in the “Frameworks, Libraries, and Embedded Content” section, click the + button, select Add Other, and choose Add Package Dependency.
-1. Either add MapTiler GitHub distribution URL (https://github.com/maptiler/maplibre-gl-native-distribution) or search for `maplibre-gl-native` package.
+1. Either add MapTiler GitHub distribution URL (https://github.com/maptiler/maplibre-gl-native-distribution) or search for `maplibre-gl-native` package.<br/>
 ![SwiftPackage1](SwiftPackage1.png "Searching for Swift Package")
-1. Choose "next". Xcode should clone the distribution repository and download the binaries. Choose both mapBox and MapBox Mobile Events libraries.
+1. Choose "next". Xcode should clone the distribution repository and download the binaries. Choose both mapBox and MapBox Mobile Events libraries.<br/>
 ![SwiftPackage2](SwiftPackage2.png "Add binaries")
 
 ## MapTiler Key
