@@ -8,30 +8,15 @@ This tutorial describes how to create a simple iOS application using Swift and S
 
 Open Xcode and create new project. Choose iOS -> App template. In the "Choose options for your new project" select Interface to "SwiftUI", lifecycle to "SwiftUI App", language to "Swift"
 
-## Add MapBox Native SDK for iOS
+## Add MapLibre Native SDK for iOS
 
-Add mapBox SDK to your project using CocoaPods.
+Add MapLibre SDK to your project using Swift Package Manager.
 
-1. If you don't have CocoaPods installed, run `sudo gem install cocoapods`
-1. Open a terminal window, and `cd` into your project directory.
-1. Create a Podfile by running `pod init`.
-1. Add MapBox dependencies to your Podfile. The file should look as follows:
-
-    ```ruby
-        # Uncomment the next line to define a global platform for your project
-        platform :ios, '9.0'
-
-        target 'SimpleMap_SwiftUI' do
-        use_frameworks!
-
-        # mapBox dependencies
-        pod 'Mapbox-iOS-SDK', '6.2.1'	
-
-        end
-    ```
-
-1. Run `pod install` to download and integrate dependencies.
-1. The previous command will generate workspace file. Use it from now on. (`SimpleMap_SwiftUI.xcworkspace`).
+1. To add a package dependency to your Xcode project, select File > Swift Packages > Add Package Dependency and enter its repository URL. You can also navigate to your target’s General pane, and in the “Frameworks, Libraries, and Embedded Content” section, click the + button, select Add Other, and choose Add Package Dependency.
+1. Either add MapTiler GitHub distribution URL (https://github.com/maptiler/maplibre-gl-native-distribution) or search for `maplibre-gl-native` package.
+![SwiftPackage1](SwiftPackage1.png "Searching for Swift Package")
+1. Choose "next". Xcode should clone the distribution repository and download the binaries. Choose both mapBox and MapBox Mobile Events libraries.
+![SwiftPackage2](SwiftPackage2.png "Add binaries")
 
 ## Create the SwiftUI View for the map
 

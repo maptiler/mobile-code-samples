@@ -99,7 +99,7 @@ class MainActivity : AppCompatActivity() {
             throw Exception("Failed to read MapTiler key from info.plist")
         }
         if (mapTilerKey.toLowerCase() == "placeholder") {
-            throw Exception("Please enter correct MapTiler key in info.plist[MapTilerKey] property")
+            throw Exception("Please enter correct MapTiler key in module-level gradle.build file in defaultConfig section")
         }
     }
 }

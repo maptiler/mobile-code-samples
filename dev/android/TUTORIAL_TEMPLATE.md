@@ -8,18 +8,31 @@ This tutorial describes how to create a simple Android application using Kotlin 
 
 Open Android Studio and create new project and choose Empty Activity template. In the "Language" dropdown select "kotlin" and keep minimum API SDK to 16.
 
-## Add MapBox SDK to the project
+## Add MapLibre SDK to the project
 
-Add MapBox SDK to your project using Maven.
+Add MapLibre SDK to your project using Maven.
 
 1. Open the project in Android Studio.
-1. Open up module-level (/app/build.gradle) file.
-1. Under dependencies, add a new build rule for the latest mapbox-android-sdk.
+1. Open up project-level (/build.gradle) file.
+1. Add bintray maven repositories to your build.gradle at project level so that you can access MapTiler packages for Android:
 
+    ```gradle
+        allprojects {
+            repositories {
+                ...
+                maven {
+                    url = "https://dl.bintray.com/maplibre/maplibre-gl-native"
+                }
+            }
+        }
     ```
+1. Open up module-level (/app/build.gradle) file.
+1. Under dependencies, add a new build rule for the latest maplibre android-sdk.
+
+    ```gradle
         dependencies {
             ...
-            implementation 'com.mapbox.mapboxsdk:mapbox-android-sdk:9.2.0'
+            implementation 'org.maplibre.gl:android-sdk:9.2.1'
             ...
         }
     ```
@@ -28,19 +41,15 @@ Add MapBox SDK to your project using Maven.
 
 1. Create [MapTiler cloud](https://www.maptiler.com/cloud/) account.
 1. [Obtain the api key](https://cloud.maptiler.com/account/keys).
-1. Add the key for MapTile key to the application manifest (`/app/src/main/AndroidManifest.xml`)
+1. Add the key for MapTile key to the module-level build.gradle
 
-    ```xml
-        <?xml version="1.0" encoding="utf-8"?>
-        <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-            package="com.maptiler.simplemap">
-
-            <application ... >
-                ...
-                <meta-data android:name="com.maptiler.simplemap.mapTilerKey" android:value="your key" />
-                ...
-            </application>
-        </manifest>
+    ```gradle
+    android {
+        ...
+        defaultConfig {
+            ...
+            resValue "string", "mapTilerKey", "your key"
+        }
     ```
 
 1. Open `MainActivity.kt file`. Add code to read MapTilerKey from the manifest.

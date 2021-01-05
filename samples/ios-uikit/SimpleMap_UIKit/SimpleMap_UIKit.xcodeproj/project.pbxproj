@@ -3,11 +3,12 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 52;
 	objects = {
 
 /* Begin PBXBuildFile section */
-		07A7055B8A13C39B685635A5 /* Pods_SimpleMap_UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BDB64912B602BC253780F6F7 /* Pods_SimpleMap_UIKit.framework */; };
+		4B2911C125A4856E006A33B5 /* MapboxMobileEvents in Frameworks */ = {isa = PBXBuildFile; productRef = 4B2911C025A4856E006A33B5 /* MapboxMobileEvents */; };
+		4B2911C325A4856E006A33B5 /* Mapbox in Frameworks */ = {isa = PBXBuildFile; productRef = 4B2911C225A4856E006A33B5 /* Mapbox */; };
 		4BD1E186252BA7EC00864780 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BD1E185252BA7EC00864780 /* AppDelegate.swift */; };
 		4BD1E188252BA7EC00864780 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BD1E187252BA7EC00864780 /* SceneDelegate.swift */; };
 		4BD1E18A252BA7EC00864780 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BD1E189252BA7EC00864780 /* ViewController.swift */; };
@@ -17,8 +18,6 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		2D076D8FF4F9ADCACFBDDCBA /* Pods-SimpleMap_UIKit.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SimpleMap_UIKit.debug.xcconfig"; path = "Target Support Files/Pods-SimpleMap_UIKit/Pods-SimpleMap_UIKit.debug.xcconfig"; sourceTree = "<group>"; };
-		2E425DCC5D611FF27FDE8367 /* Pods-SimpleMap_UIKit.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SimpleMap_UIKit.release.xcconfig"; path = "Target Support Files/Pods-SimpleMap_UIKit/Pods-SimpleMap_UIKit.release.xcconfig"; sourceTree = "<group>"; };
 		4BD1E182252BA7EC00864780 /* SimpleMap_UIKit.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SimpleMap_UIKit.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		4BD1E185252BA7EC00864780 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		4BD1E187252BA7EC00864780 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -27,7 +26,6 @@
 		4BD1E18E252BA7ED00864780 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		4BD1E191252BA7ED00864780 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		4BD1E193252BA7ED00864780 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		BDB64912B602BC253780F6F7 /* Pods_SimpleMap_UIKit.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SimpleMap_UIKit.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -35,38 +33,19 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				07A7055B8A13C39B685635A5 /* Pods_SimpleMap_UIKit.framework in Frameworks */,
+				4B2911C125A4856E006A33B5 /* MapboxMobileEvents in Frameworks */,
+				4B2911C325A4856E006A33B5 /* Mapbox in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		3420CBBFE88C9D93B43E11EC /* Pods */ = {
-			isa = PBXGroup;
-			children = (
-				2D076D8FF4F9ADCACFBDDCBA /* Pods-SimpleMap_UIKit.debug.xcconfig */,
-				2E425DCC5D611FF27FDE8367 /* Pods-SimpleMap_UIKit.release.xcconfig */,
-			);
-			name = Pods;
-			path = Pods;
-			sourceTree = "<group>";
-		};
-		4965FB39EBAE96E1C8C28670 /* Frameworks */ = {
-			isa = PBXGroup;
-			children = (
-				BDB64912B602BC253780F6F7 /* Pods_SimpleMap_UIKit.framework */,
-			);
-			name = Frameworks;
-			sourceTree = "<group>";
-		};
 		4BD1E179252BA7EC00864780 = {
 			isa = PBXGroup;
 			children = (
 				4BD1E184252BA7EC00864780 /* SimpleMap_UIKit */,
 				4BD1E183252BA7EC00864780 /* Products */,
-				3420CBBFE88C9D93B43E11EC /* Pods */,
-				4965FB39EBAE96E1C8C28670 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -99,17 +78,19 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 4BD1E196252BA7ED00864780 /* Build configuration list for PBXNativeTarget "SimpleMap_UIKit" */;
 			buildPhases = (
-				630A07A5F5C4EF7B7A3DCA52 /* [CP] Check Pods Manifest.lock */,
 				4BD1E17E252BA7EC00864780 /* Sources */,
 				4BD1E17F252BA7EC00864780 /* Frameworks */,
 				4BD1E180252BA7EC00864780 /* Resources */,
-				537B3ACCCF41CF981EE0B5DB /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
 			dependencies = (
 			);
 			name = SimpleMap_UIKit;
+			packageProductDependencies = (
+				4B2911C025A4856E006A33B5 /* MapboxMobileEvents */,
+				4B2911C225A4856E006A33B5 /* Mapbox */,
+			);
 			productName = SimpleMap_UIKit;
 			productReference = 4BD1E182252BA7EC00864780 /* SimpleMap_UIKit.app */;
 			productType = "com.apple.product-type.application";
@@ -137,6 +118,9 @@
 				Base,
 			);
 			mainGroup = 4BD1E179252BA7EC00864780;
+			packageReferences = (
+				4B2911BF25A4856E006A33B5 /* XCRemoteSwiftPackageReference "maplibre-gl-native-distribution" */,
+			);
 			productRefGroup = 4BD1E183252BA7EC00864780 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -158,48 +142,6 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
-
-/* Begin PBXShellScriptBuildPhase section */
-		537B3ACCCF41CF981EE0B5DB /* [CP] Embed Pods Frameworks */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-SimpleMap_UIKit/Pods-SimpleMap_UIKit-frameworks-${CONFIGURATION}-input-files.xcfilelist",
-			);
-			name = "[CP] Embed Pods Frameworks";
-			outputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-SimpleMap_UIKit/Pods-SimpleMap_UIKit-frameworks-${CONFIGURATION}-output-files.xcfilelist",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-SimpleMap_UIKit/Pods-SimpleMap_UIKit-frameworks.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		630A07A5F5C4EF7B7A3DCA52 /* [CP] Check Pods Manifest.lock */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-			);
-			inputPaths = (
-				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
-				"${PODS_ROOT}/Manifest.lock",
-			);
-			name = "[CP] Check Pods Manifest.lock";
-			outputFileListPaths = (
-			);
-			outputPaths = (
-				"$(DERIVED_FILE_DIR)/Pods-SimpleMap_UIKit-checkManifestLockResult.txt",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
-			showEnvVarsInLog = 0;
-		};
-/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		4BD1E17E252BA7EC00864780 /* Sources */ = {
@@ -352,7 +294,6 @@
 		};
 		4BD1E197252BA7ED00864780 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 2D076D8FF4F9ADCACFBDDCBA /* Pods-SimpleMap_UIKit.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -372,7 +313,6 @@
 		};
 		4BD1E198252BA7ED00864780 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 2E425DCC5D611FF27FDE8367 /* Pods-SimpleMap_UIKit.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -412,6 +352,30 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		4B2911BF25A4856E006A33B5 /* XCRemoteSwiftPackageReference "maplibre-gl-native-distribution" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/maptiler/maplibre-gl-native-distribution.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 5.9.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		4B2911C025A4856E006A33B5 /* MapboxMobileEvents */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 4B2911BF25A4856E006A33B5 /* XCRemoteSwiftPackageReference "maplibre-gl-native-distribution" */;
+			productName = MapboxMobileEvents;
+		};
+		4B2911C225A4856E006A33B5 /* Mapbox */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 4B2911BF25A4856E006A33B5 /* XCRemoteSwiftPackageReference "maplibre-gl-native-distribution" */;
+			productName = Mapbox;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 4BD1E17A252BA7EC00864780 /* Project object */;
 }
