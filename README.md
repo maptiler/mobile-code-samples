@@ -1,6 +1,6 @@
 # MapTiler Mobile Code Samples
 
-This repo contains simple code samples along with tutorial showing how to get started with MapBox SDK and MapTiler cloud. There are versions of this tutorial for iOS (UIKit and SwiftUI) and Android.
+This repo contains simple code samples along with tutorial showing how to get started with MapBox SDK and MapTiler Cloud. There are versions of this tutorial for iOS (UIKit and SwiftUI) and Android.
 
 ## Samples
 
