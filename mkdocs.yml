@@ -1,0 +1,14 @@
+site_name: MapLibre SDK
+docs_dir: samples
+nav:
+    - iOS Basic Map (swift): ios-swiftui/TUTORIAL.md
+    - iOS Basic Map (uikit): ios-uikit/TUTORIAL.md
+    - Android Basic Map: android/TUTORIAL.md
+theme:
+    name: material
+    logo: maptiler-logo-icon.png
+    features:
+        - navigation.sections
+markdown_extensions:
+  - pymdownx.highlight
+  - pymdownx.superfences

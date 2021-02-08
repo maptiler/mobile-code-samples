@@ -1,0 +1,489 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+      
+      <link rel="shortcut icon" href="../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.1.2, mkdocs-material-6.2.8">
+    
+    
+      
+        <title>iOS Basic Map (uikit) - MapLibre SDK</title>
+      
+    
+    
+      <link rel="stylesheet" href="../assets/stylesheets/main.cb6bc1d0.min.css">
+      
+        
+        <link rel="stylesheet" href="../assets/stylesheets/palette.39b8e14a.min.css">
+        
+      
+    
+    
+    
+      
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,400i,700%7CRoboto+Mono&display=fallback">
+        <style>body,input{font-family:"Roboto",-apple-system,BlinkMacSystemFont,Helvetica,Arial,sans-serif}code,kbd,pre{font-family:"Roboto Mono",SFMono-Regular,Consolas,Menlo,monospace}</style>
+      
+    
+    
+    
+    
+      
+    
+    
+  </head>
+  
+  
+    
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="" data-md-color-primary="none" data-md-color-accent="none">
+      
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#maptiler-tutorial-for-ios-uikitswift" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+      
+
+  
+
+<header class="md-header" data-md-component="header">
+  <nav class="md-header-nav md-grid" aria-label="Header">
+    <a href="../index.html" title="MapLibre SDK" class="md-header-nav__button md-logo" aria-label="MapLibre SDK">
+      
+  <img src="../maptiler-logo-icon.png" alt="logo">
+
+    </a>
+    <label class="md-header-nav__button md-icon" for="__drawer">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2z"/></svg>
+    </label>
+    <div class="md-header-nav__title" data-md-component="header-title">
+      <div class="md-header-nav__ellipsis">
+        <div class="md-header-nav__topic">
+          <span class="md-ellipsis">
+            MapLibre SDK
+          </span>
+        </div>
+        <div class="md-header-nav__topic">
+          <span class="md-ellipsis">
+            
+              iOS Basic Map (uikit)
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      <label class="md-header-nav__button md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0116 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 019.5 16 6.5 6.5 0 013 9.5 6.5 6.5 0 019.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5z"/></svg>
+      </label>
+      
+<div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" data-md-state="active" required>
+      <label class="md-search__icon md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0116 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 019.5 16 6.5 6.5 0 013 9.5 6.5 6.5 0 019.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5z"/></svg>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
+      </label>
+      <button type="reset" class="md-search__icon md-icon" aria-label="Clear" data-md-component="search-reset" tabindex="-1">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41z"/></svg>
+      </button>
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+  </nav>
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+  
+
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../index.html" title="MapLibre SDK" class="md-nav__button md-logo" aria-label="MapLibre SDK">
+      
+  <img src="../maptiler-logo-icon.png" alt="logo">
+
+    </a>
+    MapLibre SDK
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ios-swiftui/TUTORIAL.html" class="md-nav__link">
+        iOS Basic Map (swift)
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+    
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          iOS Basic Map (uikit)
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="TUTORIAL.html" class="md-nav__link md-nav__link--active">
+        iOS Basic Map (uikit)
+      </a>
+      
+        
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#create-new-project" class="md-nav__link">
+    Create new project
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#add-maplibre-native-sdk-for-ios" class="md-nav__link">
+    Add MapLibre Native SDK for iOS
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#maptiler-key" class="md-nav__link">
+    MapTiler Key
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#initialize-map-view" class="md-nav__link">
+    Initialize Map View
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../android/TUTORIAL.html" class="md-nav__link">
+        Android Basic Map
+      </a>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#create-new-project" class="md-nav__link">
+    Create new project
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#add-maplibre-native-sdk-for-ios" class="md-nav__link">
+    Add MapLibre Native SDK for iOS
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#maptiler-key" class="md-nav__link">
+    MapTiler Key
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#initialize-map-view" class="md-nav__link">
+    Initialize Map View
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          <div class="md-content">
+            <article class="md-content__inner md-typeset">
+              
+                
+                
+                <h1 id="maptiler-tutorial-for-ios-uikitswift">MapTiler Tutorial for iOS UIKIt/Swift</h1>
+<p>This tutorial describes how to create a simple iOS application using Swift and UIKit.</p>
+<blockquote>
+<p>This tutorial was written for macOS</p>
+</blockquote>
+<h2 id="create-new-project">Create new project</h2>
+<p>Open Xcode and create new project. Choose iOS -&gt; App template. In the "Choose options for your new project" select Interface to "Storyboard", lifecycle to "UI App Delegate", language to "Swift"</p>
+<h2 id="add-maplibre-native-sdk-for-ios">Add MapLibre Native SDK for iOS</h2>
+<p>Add MapLibre SDK to your project using Swift Package Manager.</p>
+<ol>
+<li>To add a package dependency to your Xcode project, select File &gt; Swift Packages &gt; Add Package Dependency and enter its repository URL. You can also navigate to your target’s General pane, and in the “Frameworks, Libraries, and Embedded Content” section, click the + button, select Add Other, and choose Add Package Dependency.</li>
+<li>Either add MapTiler GitHub distribution URL (https://github.com/maptiler/maplibre-gl-native-distribution) or search for <code>maplibre-gl-native</code> package.<br/>
+<img alt="SwiftPackage1" src="SwiftPackage1.png" title="Searching for Swift Package" /></li>
+<li>Choose "next". Xcode should clone the distribution repository and download the binaries. Choose both mapBox and MapBox Mobile Events libraries.<br/>
+<img alt="SwiftPackage2" src="SwiftPackage2.png" title="Add binaries" /></li>
+</ol>
+<h2 id="maptiler-key">MapTiler Key</h2>
+<ol>
+<li>Create <a href="https://www.maptiler.com/cloud/">MapTiler cloud</a> account.</li>
+<li><a href="https://cloud.maptiler.com/account/keys">Obtain the api key</a>.</li>
+<li>Set the MapTilerKey property in <code>SimpleMap_UIKit/info.plist</code> to the value obtained in the previous step.</li>
+<li>Open the <code>SimpleMap_UIKit.xcworkspace</code> in Xcode and navigate to ViewController.swift. Add code to read MapTilerKey from property list.</li>
+</ol>
+<div class="highlight"><pre><span></span><code>    <span class="kd">func</span> <span class="nf">getMapTilerkey</span><span class="p">()</span> <span class="p">-&gt;</span> <span class="nb">String</span> <span class="p">{</span>
+        <span class="kd">let</span> <span class="nv">mapTilerKey</span> <span class="p">=</span> <span class="n">Bundle</span><span class="p">.</span><span class="n">main</span><span class="p">.</span><span class="n">object</span><span class="p">(</span><span class="n">forInfoDictionaryKey</span><span class="p">:</span> <span class="s">&quot;MapTilerKey&quot;</span><span class="p">)</span> <span class="k">as</span><span class="p">?</span> <span class="nb">String</span>
+        <span class="n">validateKey</span><span class="p">(</span><span class="n">mapTilerKey</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">mapTilerKey</span><span class="p">!</span>
+    <span class="p">}</span>
+</code></pre></div>
+<h2 id="initialize-map-view">Initialize Map View</h2>
+<ol>
+<li>Open the <code>ViewController.swift</code> file.</li>
+<li>Add the following code in the <code>viewDidLoad</code> method in order to construct map view.</li>
+</ol>
+<div class="highlight"><pre><span></span><code>    <span class="kd">func</span> <span class="nf">viewDidLoad</span><span class="p">()</span> <span class="p">{</span>
+        <span class="kc">super</span><span class="p">.</span><span class="n">viewDidLoad</span><span class="p">()</span>
+
+        <span class="c1">// retrieve MapTiler key from property list</span>
+        <span class="kd">let</span> <span class="nv">mapTilerKey</span> <span class="p">=</span> <span class="n">getMapTilerkey</span><span class="p">()</span>
+
+        <span class="n">title</span> <span class="p">=</span> <span class="s">&quot;Simple Map&quot;</span>
+        <span class="c1">// construct style URL</span>
+        <span class="kd">let</span> <span class="nv">styleURL</span> <span class="p">=</span> <span class="n">URL</span><span class="p">(</span><span class="n">string</span><span class="p">:</span> <span class="s">&quot;https://api.maptiler.com/maps/streets/style.json?key=</span><span class="si">\(</span><span class="n">mapTilerKey</span><span class="si">)</span><span class="s">&quot;</span><span class="p">)</span>
+        <span class="c1">// create the map view</span>
+        <span class="kd">let</span> <span class="nv">mapView</span> <span class="p">=</span> <span class="n">MGLMapView</span><span class="p">(</span><span class="n">frame</span><span class="p">:</span> <span class="n">view</span><span class="p">.</span><span class="n">bounds</span><span class="p">,</span> <span class="n">styleURL</span><span class="p">:</span> <span class="n">styleURL</span><span class="p">)</span>
+        <span class="n">mapView</span><span class="p">.</span><span class="n">autoresizingMask</span> <span class="p">=</span> <span class="p">[.</span><span class="n">flexibleWidth</span><span class="p">,</span> <span class="p">.</span><span class="n">flexibleHeight</span><span class="p">]</span>
+        <span class="n">mapView</span><span class="p">.</span><span class="n">delegate</span> <span class="p">=</span> <span class="kc">self</span>
+        <span class="n">mapView</span><span class="p">.</span><span class="n">logoView</span><span class="p">.</span><span class="n">isHidden</span> <span class="p">=</span> <span class="kc">true</span>
+        <span class="c1">// Set the map’s center coordinate and zoom level.</span>
+        <span class="n">mapView</span><span class="p">.</span><span class="n">setCenter</span><span class="p">(</span>
+            <span class="n">CLLocationCoordinate2D</span><span class="p">(</span><span class="n">latitude</span><span class="p">:</span> <span class="mf">47.127757</span><span class="p">,</span> <span class="n">longitude</span><span class="p">:</span> <span class="mf">8.579139</span><span class="p">),</span>
+            <span class="n">zoomLevel</span><span class="p">:</span> <span class="mi">10</span><span class="p">,</span>
+            <span class="n">animated</span><span class="p">:</span> <span class="kc">false</span><span class="p">)</span>
+        <span class="n">view</span><span class="p">.</span><span class="n">addSubview</span><span class="p">(</span><span class="n">mapView</span><span class="p">)</span>
+    <span class="p">}</span>
+</code></pre></div>
+<blockquote>
+<p>If you would need to respond to MapView events, for example perform an action after MapView initialization finished, place the <code>MGLMapViewDelegate</code> protocol name after the <code>ViewController</code> name and set the MapView delegate reference to ViewController</p>
+<div class="highlight"><pre><span></span><code><span class="kd">class</span> <span class="nc">ViewController</span><span class="p">:</span> <span class="bp">UIViewController</span><span class="p">,</span> <span class="n">MGLMapViewDelegate</span> <span class="p">{</span> 
+       <span class="p">...</span>
+<span class="p">}</span>
+</code></pre></div>
+<p>and </p>
+<p><div class="highlight"><pre><span></span><code><span class="kr">override</span> <span class="kd">func</span> <span class="nf">viewDidLoad</span><span class="p">()</span> <span class="p">{</span>
+   <span class="p">...</span>
+   <span class="n">mapView</span><span class="p">.</span><span class="n">delegate</span> <span class="p">=</span> <span class="kc">self</span>
+   <span class="p">...</span>
+<span class="p">}</span>
+</code></pre></div>
+</p>
+</blockquote>
+<p><img alt="Application Screenshot" src="SimpleMap_UIKit.png" title="Application Screenshot" /></p>
+                
+              
+              
+                
+
+
+              
+            </article>
+          </div>
+        </div>
+      </main>
+      
+        
+<footer class="md-footer">
+  
+    <div class="md-footer-nav">
+      <nav class="md-footer-nav__inner md-grid" aria-label="Footer">
+        
+          <a href="../ios-swiftui/TUTORIAL.html" class="md-footer-nav__link md-footer-nav__link--prev" rel="prev">
+            <div class="md-footer-nav__button md-icon">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
+            </div>
+            <div class="md-footer-nav__title">
+              <div class="md-ellipsis">
+                <span class="md-footer-nav__direction">
+                  Previous
+                </span>
+                iOS Basic Map (swift)
+              </div>
+            </div>
+          </a>
+        
+        
+          <a href="../android/TUTORIAL.html" class="md-footer-nav__link md-footer-nav__link--next" rel="next">
+            <div class="md-footer-nav__title">
+              <div class="md-ellipsis">
+                <span class="md-footer-nav__direction">
+                  Next
+                </span>
+                Android Basic Map
+              </div>
+            </div>
+            <div class="md-footer-nav__button md-icon">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11H4z"/></svg>
+            </div>
+          </a>
+        
+      </nav>
+    </div>
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-footer-copyright">
+        
+        Made with
+        <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+          Material for MkDocs
+        </a>
+      </div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    
+      <script src="../assets/javascripts/vendor.18f0862e.min.js"></script>
+      <script src="../assets/javascripts/bundle.994580cf.min.js"></script><script id="__lang" type="application/json">{"clipboard.copy": "Copy to clipboard", "clipboard.copied": "Copied to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Search", "search.result.placeholder": "Type to start searching", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.term.missing": "Missing"}</script>
+      
+      <script>
+        app = initialize({
+          base: "..",
+          features: ['navigation.sections'],
+          search: Object.assign({
+            worker: "../assets/javascripts/worker/search.9c0e82ba.min.js"
+          }, typeof search !== "undefined" && search)
+        })
+      </script>
+      
+    
+  </body>
+</html>

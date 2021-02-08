@@ -1,0 +1,591 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+      
+      <link rel="shortcut icon" href="../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.1.2, mkdocs-material-6.2.8">
+    
+    
+      
+        <title>Android Basic Map - MapLibre SDK</title>
+      
+    
+    
+      <link rel="stylesheet" href="../assets/stylesheets/main.cb6bc1d0.min.css">
+      
+        
+        <link rel="stylesheet" href="../assets/stylesheets/palette.39b8e14a.min.css">
+        
+      
+    
+    
+    
+      
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,400i,700%7CRoboto+Mono&display=fallback">
+        <style>body,input{font-family:"Roboto",-apple-system,BlinkMacSystemFont,Helvetica,Arial,sans-serif}code,kbd,pre{font-family:"Roboto Mono",SFMono-Regular,Consolas,Menlo,monospace}</style>
+      
+    
+    
+    
+    
+      
+    
+    
+  </head>
+  
+  
+    
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="" data-md-color-primary="none" data-md-color-accent="none">
+      
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#maptiler-tutorial-for-android" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+      
+
+  
+
+<header class="md-header" data-md-component="header">
+  <nav class="md-header-nav md-grid" aria-label="Header">
+    <a href="../index.html" title="MapLibre SDK" class="md-header-nav__button md-logo" aria-label="MapLibre SDK">
+      
+  <img src="../maptiler-logo-icon.png" alt="logo">
+
+    </a>
+    <label class="md-header-nav__button md-icon" for="__drawer">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2z"/></svg>
+    </label>
+    <div class="md-header-nav__title" data-md-component="header-title">
+      <div class="md-header-nav__ellipsis">
+        <div class="md-header-nav__topic">
+          <span class="md-ellipsis">
+            MapLibre SDK
+          </span>
+        </div>
+        <div class="md-header-nav__topic">
+          <span class="md-ellipsis">
+            
+              Android Basic Map
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      <label class="md-header-nav__button md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0116 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 019.5 16 6.5 6.5 0 013 9.5 6.5 6.5 0 019.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5z"/></svg>
+      </label>
+      
+<div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" data-md-state="active" required>
+      <label class="md-search__icon md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0116 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 019.5 16 6.5 6.5 0 013 9.5 6.5 6.5 0 019.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5z"/></svg>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
+      </label>
+      <button type="reset" class="md-search__icon md-icon" aria-label="Clear" data-md-component="search-reset" tabindex="-1">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41z"/></svg>
+      </button>
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+  </nav>
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+  
+
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../index.html" title="MapLibre SDK" class="md-nav__button md-logo" aria-label="MapLibre SDK">
+      
+  <img src="../maptiler-logo-icon.png" alt="logo">
+
+    </a>
+    MapLibre SDK
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ios-swiftui/TUTORIAL.html" class="md-nav__link">
+        iOS Basic Map (swift)
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ios-uikit/TUTORIAL.html" class="md-nav__link">
+        iOS Basic Map (uikit)
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+    
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          Android Basic Map
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="TUTORIAL.html" class="md-nav__link md-nav__link--active">
+        Android Basic Map
+      </a>
+      
+        
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#create-new-project" class="md-nav__link">
+    Create new project
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#add-maplibre-sdk-to-the-project" class="md-nav__link">
+    Add MapLibre SDK to the project
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#maptiler-key" class="md-nav__link">
+    MapTiler Key
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#add-the-layout-for-the-map" class="md-nav__link">
+    Add the layout for the map
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#initialize-map-view" class="md-nav__link">
+    Initialize Map View
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#handle-application-lifecycle-events" class="md-nav__link">
+    Handle application lifecycle events
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#create-new-project" class="md-nav__link">
+    Create new project
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#add-maplibre-sdk-to-the-project" class="md-nav__link">
+    Add MapLibre SDK to the project
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#maptiler-key" class="md-nav__link">
+    MapTiler Key
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#add-the-layout-for-the-map" class="md-nav__link">
+    Add the layout for the map
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#initialize-map-view" class="md-nav__link">
+    Initialize Map View
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#handle-application-lifecycle-events" class="md-nav__link">
+    Handle application lifecycle events
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          <div class="md-content">
+            <article class="md-content__inner md-typeset">
+              
+                
+                
+                <h1 id="maptiler-tutorial-for-android">MapTiler Tutorial for Android</h1>
+<p>This tutorial describes how to create a simple Android application using Kotlin and Android SDK.</p>
+<blockquote>
+<p>This tutorial was written for macOS</p>
+</blockquote>
+<h2 id="create-new-project">Create new project</h2>
+<p>Open Android Studio and create new project and choose Empty Activity template. In the "Language" dropdown select "kotlin" and keep minimum API SDK to 16.</p>
+<h2 id="add-maplibre-sdk-to-the-project">Add MapLibre SDK to the project</h2>
+<p>Add MapLibre SDK to your project using Maven.</p>
+<ol>
+<li>Open the project in Android Studio.</li>
+<li>Open up project-level (/build.gradle) file.</li>
+<li>
+<p>Add bintray maven repositories to your build.gradle at project level so that you can access MapTiler packages for Android:</p>
+<p><div class="highlight"><pre><span></span><code>    allprojects {
+        repositories {
+            ...
+            maven {
+                url = &quot;https://dl.bintray.com/maplibre/maplibre-gl-native&quot;
+            }
+        }
+    }
+</code></pre></div>
+1. Open up module-level (/app/build.gradle) file.
+1. Under dependencies, add a new build rule for the latest maplibre android-sdk.</p>
+<div class="highlight"><pre><span></span><code>    dependencies {
+        ...
+        implementation &#39;org.maplibre.gl:android-sdk:9.2.1&#39;
+        ...
+    }
+</code></pre></div>
+</li>
+</ol>
+<h2 id="maptiler-key">MapTiler Key</h2>
+<ol>
+<li>Create <a href="https://www.maptiler.com/cloud/">MapTiler cloud</a> account.</li>
+<li><a href="https://cloud.maptiler.com/account/keys">Obtain the api key</a>.</li>
+<li>
+<p>Add the key for MapTile key to the module-level build.gradle</p>
+<div class="highlight"><pre><span></span><code>android {
+    ...
+    defaultConfig {
+        ...
+        resValue &quot;string&quot;, &quot;mapTilerKey&quot;, &quot;your key&quot;
+    }
+</code></pre></div>
+</li>
+<li>
+<p>Open <code>MainActivity.kt file</code>. Add code to read MapTilerKey from the manifest.</p>
+<div class="highlight"><pre><span></span><code>    <span class="k">private</span> <span class="k">fun</span> <span class="nf">getMapTilerKey</span><span class="p">():</span> <span class="n">String</span><span class="p">?</span> <span class="p">{</span>
+    <span class="k">return</span> <span class="n">packageManager</span><span class="p">.</span><span class="n">getApplicationInfo</span><span class="p">(</span>
+        <span class="n">packageName</span><span class="p">,</span>
+        <span class="n">PackageManager</span><span class="p">.</span><span class="n">GET_META_DATA</span>
+    <span class="p">).</span><span class="n">metaData</span><span class="p">.</span><span class="n">getString</span><span class="p">(</span><span class="s">&quot;com.maptiler.simplemap.mapTilerKey&quot;</span><span class="p">)</span>
+<span class="p">}</span>
+</code></pre></div>
+</li>
+</ol>
+<h2 id="add-the-layout-for-the-map">Add the layout for the map</h2>
+<ol>
+<li>Navigate to <code>/app/res/layout</code> folder in Android Studio</li>
+<li>
+<p>Add new layout named <code>activity_main.xml</code></p>
+<div class="highlight"><pre><span></span><code>    <span class="cp">&lt;?xml version=&quot;1.0&quot; encoding=&quot;utf-8&quot;?&gt;</span>
+    <span class="nt">&lt;androidx.constraintlayout.widget.ConstraintLayout</span> <span class="na">xmlns:android=</span><span class="s">&quot;http://schemas.android.com/apk/res/android&quot;</span>
+        <span class="na">xmlns:app=</span><span class="s">&quot;http://schemas.android.com/apk/res-auto&quot;</span>
+        <span class="na">xmlns:tools=</span><span class="s">&quot;http://schemas.android.com/tools&quot;</span>
+        <span class="na">android:layout_width=</span><span class="s">&quot;match_parent&quot;</span>
+        <span class="na">android:layout_height=</span><span class="s">&quot;match_parent&quot;</span>
+        <span class="na">tools:context=</span><span class="s">&quot;.MainActivity&quot;</span><span class="nt">&gt;</span>
+
+        <span class="nt">&lt;com.mapbox.mapboxsdk.maps.MapView</span>
+            <span class="na">android:id=</span><span class="s">&quot;@+id/mapView&quot;</span>
+            <span class="na">android:layout_width=</span><span class="s">&quot;match_parent&quot;</span>
+            <span class="na">android:layout_height=</span><span class="s">&quot;match_parent&quot;</span>
+            <span class="nt">/&gt;</span>
+
+    <span class="nt">&lt;/androidx.constraintlayout.widget.ConstraintLayout&gt;</span>    
+</code></pre></div>
+</li>
+</ol>
+<h2 id="initialize-map-view">Initialize Map View</h2>
+<ol>
+<li>Open the <code>MainActivity.kt</code> file.</li>
+<li>
+<p>Add the member variable to hold MapView instance into <code>MainActivity</code> class</p>
+<div class="highlight"><pre><span></span><code>    <span class="k">private</span> <span class="k">var</span> <span class="py">mapView</span><span class="p">:</span> <span class="n">MapView</span><span class="p">?</span> <span class="p">=</span> <span class="k">null</span>
+</code></pre></div>
+</li>
+<li>
+<p>Add the following code to the <code>onCreate</code> method in order to construct map view.</p>
+<div class="highlight"><pre><span></span><code>    <span class="k">override</span> <span class="k">fun</span> <span class="nf">onCreate</span><span class="p">(</span><span class="n">savedInstanceState</span><span class="p">:</span> <span class="n">Bundle</span><span class="p">?)</span> <span class="p">{</span>
+    <span class="k">super</span><span class="p">.</span><span class="n">onCreate</span><span class="p">(</span><span class="n">savedInstanceState</span><span class="p">)</span>
+
+    <span class="k">val</span> <span class="py">mapTilerKey</span> <span class="p">=</span> <span class="n">getMapTilerKey</span><span class="p">()</span>
+    <span class="n">validateKey</span><span class="p">(</span><span class="n">mapTilerKey</span><span class="p">)</span>
+    <span class="k">val</span> <span class="py">styleUrl</span> <span class="p">=</span> <span class="s">&quot;https://api.maptiler.com/maps/streets/style.json?key=${mapTilerKey}&quot;</span><span class="p">;</span>
+
+    <span class="c1">// Get the MapBox context</span>
+    <span class="n">Mapbox</span><span class="p">.</span><span class="n">getInstance</span><span class="p">(</span><span class="k">this</span><span class="p">,</span> <span class="k">null</span><span class="p">)</span>
+
+    <span class="c1">// Set the map view layout</span>
+    <span class="n">setContentView</span><span class="p">(</span><span class="n">R</span><span class="p">.</span><span class="n">layout</span><span class="p">.</span><span class="n">activity_main</span><span class="p">)</span>
+
+    <span class="c1">// Create map view</span>
+    <span class="n">mapView</span> <span class="p">=</span> <span class="n">findViewById</span><span class="p">(</span><span class="n">R</span><span class="p">.</span><span class="n">id</span><span class="p">.</span><span class="n">mapView</span><span class="p">)</span>
+    <span class="n">mapView</span><span class="o">?.</span><span class="n">onCreate</span><span class="p">(</span><span class="n">savedInstanceState</span><span class="p">)</span>
+    <span class="n">mapView</span><span class="o">?.</span><span class="n">getMapAsync</span> <span class="p">{</span> <span class="n">map</span> <span class="p">-&gt;</span>
+        <span class="c1">// Set the style after mapView was loaded</span>
+        <span class="n">map</span><span class="p">.</span><span class="n">setStyle</span><span class="p">(</span><span class="n">styleUrl</span><span class="p">)</span> <span class="p">{</span>
+            <span class="n">map</span><span class="p">.</span><span class="n">uiSettings</span><span class="p">.</span><span class="n">setAttributionMargins</span><span class="p">(</span><span class="m">15</span><span class="p">,</span> <span class="m">0</span><span class="p">,</span> <span class="m">0</span><span class="p">,</span> <span class="m">15</span><span class="p">)</span>
+            <span class="c1">// Set the map view center</span>
+            <span class="n">map</span><span class="p">.</span><span class="n">cameraPosition</span> <span class="p">=</span> <span class="n">CameraPosition</span><span class="p">.</span><span class="n">Builder</span><span class="p">()</span>
+                <span class="p">.</span><span class="n">target</span><span class="p">(</span><span class="n">LatLng</span><span class="p">(</span><span class="m">47.127757</span><span class="p">,</span> <span class="m">8.579139</span><span class="p">))</span>
+                <span class="p">.</span><span class="n">zoom</span><span class="p">(</span><span class="m">10.0</span><span class="p">)</span>
+                <span class="p">.</span><span class="n">build</span><span class="p">()</span>
+        <span class="p">}</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div>
+</li>
+</ol>
+<h2 id="handle-application-lifecycle-events">Handle application lifecycle events</h2>
+<p>Add the following code to <code>MainActivity</code> in order to handle application lifecycle events</p>
+<div class="highlight"><pre><span></span><code>    <span class="k">override</span> <span class="k">fun</span> <span class="nf">onStart</span><span class="p">()</span> <span class="p">{</span>
+        <span class="k">super</span><span class="p">.</span><span class="n">onStart</span><span class="p">()</span>
+        <span class="n">mapView</span><span class="o">?.</span><span class="n">onStart</span><span class="p">()</span>
+    <span class="p">}</span>
+
+    <span class="k">override</span> <span class="k">fun</span> <span class="nf">onResume</span><span class="p">()</span> <span class="p">{</span>
+        <span class="k">super</span><span class="p">.</span><span class="n">onResume</span><span class="p">()</span>
+        <span class="n">mapView</span><span class="o">?.</span><span class="n">onResume</span><span class="p">()</span>
+    <span class="p">}</span>
+
+    <span class="k">override</span> <span class="k">fun</span> <span class="nf">onPause</span><span class="p">()</span> <span class="p">{</span>
+        <span class="k">super</span><span class="p">.</span><span class="n">onPause</span><span class="p">()</span>
+        <span class="n">mapView</span><span class="o">?.</span><span class="n">onPause</span><span class="p">()</span>
+    <span class="p">}</span>
+
+    <span class="k">override</span> <span class="k">fun</span> <span class="nf">onStop</span><span class="p">()</span> <span class="p">{</span>
+        <span class="k">super</span><span class="p">.</span><span class="n">onStop</span><span class="p">()</span>
+        <span class="n">mapView</span><span class="o">?.</span><span class="n">onStop</span><span class="p">()</span>
+    <span class="p">}</span>
+
+    <span class="k">override</span> <span class="k">fun</span> <span class="nf">onSaveInstanceState</span><span class="p">(</span><span class="n">outState</span><span class="p">:</span> <span class="n">Bundle</span><span class="p">)</span> <span class="p">{</span>
+        <span class="k">super</span><span class="p">.</span><span class="n">onSaveInstanceState</span><span class="p">(</span><span class="n">outState</span><span class="p">)</span>
+        <span class="n">mapView</span><span class="o">?.</span><span class="n">onSaveInstanceState</span><span class="p">(</span><span class="n">outState</span><span class="p">)</span>
+    <span class="p">}</span>
+
+    <span class="k">override</span> <span class="k">fun</span> <span class="nf">onLowMemory</span><span class="p">()</span> <span class="p">{</span>
+        <span class="k">super</span><span class="p">.</span><span class="n">onLowMemory</span><span class="p">()</span>
+        <span class="n">mapView</span><span class="o">?.</span><span class="n">onLowMemory</span><span class="p">()</span>
+    <span class="p">}</span>
+
+    <span class="k">override</span> <span class="k">fun</span> <span class="nf">onDestroy</span><span class="p">()</span> <span class="p">{</span>
+        <span class="k">super</span><span class="p">.</span><span class="n">onDestroy</span><span class="p">()</span>
+        <span class="n">mapView</span><span class="o">?.</span><span class="n">onDestroy</span><span class="p">()</span>
+    <span class="p">}</span>
+</code></pre></div>
+<p><img alt="Application Screenshot" src="SimpleMap_Android.png" title="Application Screenshot" /></p>
+                
+              
+              
+                
+
+
+              
+            </article>
+          </div>
+        </div>
+      </main>
+      
+        
+<footer class="md-footer">
+  
+    <div class="md-footer-nav">
+      <nav class="md-footer-nav__inner md-grid" aria-label="Footer">
+        
+          <a href="../ios-uikit/TUTORIAL.html" class="md-footer-nav__link md-footer-nav__link--prev" rel="prev">
+            <div class="md-footer-nav__button md-icon">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
+            </div>
+            <div class="md-footer-nav__title">
+              <div class="md-ellipsis">
+                <span class="md-footer-nav__direction">
+                  Previous
+                </span>
+                iOS Basic Map (uikit)
+              </div>
+            </div>
+          </a>
+        
+        
+      </nav>
+    </div>
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-footer-copyright">
+        
+        Made with
+        <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+          Material for MkDocs
+        </a>
+      </div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    
+      <script src="../assets/javascripts/vendor.18f0862e.min.js"></script>
+      <script src="../assets/javascripts/bundle.994580cf.min.js"></script><script id="__lang" type="application/json">{"clipboard.copy": "Copy to clipboard", "clipboard.copied": "Copied to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Search", "search.result.placeholder": "Type to start searching", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.term.missing": "Missing"}</script>
+      
+      <script>
+        app = initialize({
+          base: "..",
+          features: ['navigation.sections'],
+          search: Object.assign({
+            worker: "../assets/javascripts/worker/search.9c0e82ba.min.js"
+          }, typeof search !== "undefined" && search)
+        })
+      </script>
+      
+    
+  </body>
+</html>
