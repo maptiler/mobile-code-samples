@@ -1,5 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
-<!--<TextView xmlns:android="http://schemas.android.com/apk/res/android"-->
+<?xml version="1.0" encoding="utf-8"?><!--<TextView xmlns:android="http://schemas.android.com/apk/res/android"-->
 <!--    xmlns:tools="http://schemas.android.com/tools"-->
 <!--    android:id="@+id/item_detail"-->
 <!--    style="?android:attr/textAppearanceLarge"-->
@@ -9,9 +8,15 @@
 <!--    android:textIsSelectable="true"-->
 <!--    tools:context=".SimpleMapFragment" />-->
 
-<MapView xmlns:android="http://schemas.android.com/apk/res/android"
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/mapView"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    tools:context=".SimpleMapFragment"/>
+    android:layout_height="match_parent">
+
+    <com.mapbox.mapboxsdk.maps.MapView
+        android:id="@+id/simpleMapView"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:context=".SimpleMapFragment" />
+
+</FrameLayout>

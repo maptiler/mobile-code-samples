@@ -9,7 +9,7 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.MapLibreSamples">
-        <meta-data android:name="com.maptiler.simplemap.mapTilerKey" android:value="@string/mapTilerKey" />
+        <meta-data android:name="com.maptiler.maplibresamples.mapTilerKey" android:value="@string/mapTilerKey" />
         <activity
             android:name=".SdkExampleListActivity"
             android:label="@string/app_name"

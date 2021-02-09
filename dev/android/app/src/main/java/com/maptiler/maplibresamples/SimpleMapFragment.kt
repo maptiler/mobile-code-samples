@@ -78,35 +78,22 @@ class SimpleMapFragment : Fragment() {
 
     private fun validateKey(mapTilerKey: String?) {
         if (mapTilerKey == null) {
-            throw Exception("Failed to read MapTiler key from info.plist")
+            throw Exception("Failed to read MapTiler key")
         }
         if (mapTilerKey.toLowerCase() == "placeholder") {
             throw Exception("Please enter correct MapTiler key in module-level gradle.build file in defaultConfig section")
         }
     }
 
-    override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?,
-                              savedInstanceState: Bundle?): View? {
-//        val rootView = inflater.inflate(R.layout.simple_map, container, false)
-
-//        // Show the dummy content as text in a TextView.
-//        item?.let {
-//            rootView.findViewById<TextView>(R.id.item_detail).text = it.description
-//        }
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
 
         val mapTilerKey = getMapTilerKey()
         validateKey(mapTilerKey)
         val styleUrl = "https://api.maptiler.com/maps/streets/style.json?key=${mapTilerKey}";
 
-        // Get the MapBox context
-        Mapbox.getInstance(context!!, null)
-
-        // Set the map view layout
-        // setContentView(R.layout.simple_map)
-        val rootView = inflater.inflate(R.layout.simple_map, container, false)
-
         // Create map view
-        mapView = rootView.findViewById(R.id.mapView)
+        mapView = view.findViewById(R.id.simpleMapView)
         mapView?.onCreate(savedInstanceState)
         mapView?.getMapAsync { map ->
             // Set the style after mapView was loaded
@@ -119,7 +106,24 @@ class SimpleMapFragment : Fragment() {
                     .build()
             }
         }
+    }
 
+    override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?,
+                              savedInstanceState: Bundle?): View? {
+//        val rootView = inflater.inflate(R.layout.simple_map, container, false)
+
+//        // Show the dummy content as text in a TextView.
+//        item?.let {
+//            rootView.findViewById<TextView>(R.id.item_detail).text = it.description
+//        }
+
+
+        // Get the MapBox context
+        Mapbox.getInstance(context!!, null)
+
+        // Set the map view layout
+        // setContentView(R.layout.simple_map)
+        val rootView = inflater.inflate(R.layout.simple_map, container, false)
         return rootView
     }
 }
