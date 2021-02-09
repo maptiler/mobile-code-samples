@@ -3,25 +3,33 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 52;
 	objects = {
 
 /* Begin PBXBuildFile section */
+		4B40DF5825D31BD40027C4FD /* SdkSample.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B40DF5725D31BD40027C4FD /* SdkSample.swift */; };
+		4B40DF5B25D31F680027C4FD /* BasicMap.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B40DF5A25D31F680027C4FD /* BasicMap.swift */; };
+		4B40DF5E25D31F860027C4FD /* Annotations.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B40DF5D25D31F860027C4FD /* Annotations.swift */; };
+		4B40DF6125D31F9A0027C4FD /* RasterOverlay.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B40DF6025D31F9A0027C4FD /* RasterOverlay.swift */; };
+		4B40DF6525D325720027C4FD /* MapboxMobileEvents in Frameworks */ = {isa = PBXBuildFile; productRef = 4B40DF6425D325720027C4FD /* MapboxMobileEvents */; };
+		4B40DF6725D325720027C4FD /* Mapbox in Frameworks */ = {isa = PBXBuildFile; productRef = 4B40DF6625D325720027C4FD /* Mapbox */; };
 		4BF26D4F25D1BB0000906A2F /* MapLibreExamplesApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BF26D4E25D1BB0000906A2F /* MapLibreExamplesApp.swift */; };
 		4BF26D5125D1BB0000906A2F /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BF26D5025D1BB0000906A2F /* ContentView.swift */; };
 		4BF26D5325D1BB0100906A2F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4BF26D5225D1BB0100906A2F /* Assets.xcassets */; };
 		4BF26D5625D1BB0100906A2F /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4BF26D5525D1BB0100906A2F /* Preview Assets.xcassets */; };
-		4BF26D5F25D1BE2F00906A2F /* MenuView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BF26D5E25D1BE2F00906A2F /* MenuView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		4B40DF5725D31BD40027C4FD /* SdkSample.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SdkSample.swift; sourceTree = "<group>"; };
+		4B40DF5A25D31F680027C4FD /* BasicMap.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BasicMap.swift; sourceTree = "<group>"; };
+		4B40DF5D25D31F860027C4FD /* Annotations.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Annotations.swift; sourceTree = "<group>"; };
+		4B40DF6025D31F9A0027C4FD /* RasterOverlay.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RasterOverlay.swift; sourceTree = "<group>"; };
 		4BF26D4B25D1BB0000906A2F /* MapLibreExamples.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MapLibreExamples.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		4BF26D4E25D1BB0000906A2F /* MapLibreExamplesApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapLibreExamplesApp.swift; sourceTree = "<group>"; };
 		4BF26D5025D1BB0000906A2F /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		4BF26D5225D1BB0100906A2F /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		4BF26D5525D1BB0100906A2F /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		4BF26D5725D1BB0100906A2F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		4BF26D5E25D1BE2F00906A2F /* MenuView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -29,6 +37,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4B40DF6525D325720027C4FD /* MapboxMobileEvents in Frameworks */,
+				4B40DF6725D325720027C4FD /* Mapbox in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -59,7 +69,10 @@
 				4BF26D5225D1BB0100906A2F /* Assets.xcassets */,
 				4BF26D5725D1BB0100906A2F /* Info.plist */,
 				4BF26D5425D1BB0100906A2F /* Preview Content */,
-				4BF26D5E25D1BE2F00906A2F /* MenuView.swift */,
+				4B40DF5725D31BD40027C4FD /* SdkSample.swift */,
+				4B40DF5A25D31F680027C4FD /* BasicMap.swift */,
+				4B40DF5D25D31F860027C4FD /* Annotations.swift */,
+				4B40DF6025D31F9A0027C4FD /* RasterOverlay.swift */,
 			);
 			path = MapLibreExamples;
 			sourceTree = "<group>";
@@ -88,6 +101,10 @@
 			dependencies = (
 			);
 			name = MapLibreExamples;
+			packageProductDependencies = (
+				4B40DF6425D325720027C4FD /* MapboxMobileEvents */,
+				4B40DF6625D325720027C4FD /* Mapbox */,
+			);
 			productName = MapLibreExamples;
 			productReference = 4BF26D4B25D1BB0000906A2F /* MapLibreExamples.app */;
 			productType = "com.apple.product-type.application";
@@ -115,6 +132,9 @@
 				Base,
 			);
 			mainGroup = 4BF26D4225D1BB0000906A2F;
+			packageReferences = (
+				4B40DF6325D325720027C4FD /* XCRemoteSwiftPackageReference "maplibre-gl-native-distribution" */,
+			);
 			productRefGroup = 4BF26D4C25D1BB0000906A2F /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -141,9 +161,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4B40DF5825D31BD40027C4FD /* SdkSample.swift in Sources */,
+				4B40DF5B25D31F680027C4FD /* BasicMap.swift in Sources */,
+				4B40DF5E25D31F860027C4FD /* Annotations.swift in Sources */,
 				4BF26D5125D1BB0000906A2F /* ContentView.swift in Sources */,
 				4BF26D4F25D1BB0000906A2F /* MapLibreExamplesApp.swift in Sources */,
-				4BF26D5F25D1BE2F00906A2F /* MenuView.swift in Sources */,
+				4B40DF6125D31F9A0027C4FD /* RasterOverlay.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -332,6 +355,30 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		4B40DF6325D325720027C4FD /* XCRemoteSwiftPackageReference "maplibre-gl-native-distribution" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/maplibre/maplibre-gl-native-distribution.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 5.10.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		4B40DF6425D325720027C4FD /* MapboxMobileEvents */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 4B40DF6325D325720027C4FD /* XCRemoteSwiftPackageReference "maplibre-gl-native-distribution" */;
+			productName = MapboxMobileEvents;
+		};
+		4B40DF6625D325720027C4FD /* Mapbox */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 4B40DF6325D325720027C4FD /* XCRemoteSwiftPackageReference "maplibre-gl-native-distribution" */;
+			productName = Mapbox;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 4BF26D4325D1BB0000906A2F /* Project object */;
 }
