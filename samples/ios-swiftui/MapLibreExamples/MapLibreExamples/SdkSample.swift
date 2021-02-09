@@ -1,10 +1,3 @@
-//
-//  SdkSample.swift
-//  MapLibreExamples
-//
-//  Created by Petr Pokorny on 2/9/21.
-//
-
 import Foundation
 import SwiftUI
 

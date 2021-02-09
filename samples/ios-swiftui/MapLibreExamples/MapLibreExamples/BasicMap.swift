@@ -3,17 +3,17 @@ import Mapbox
 
 struct BasicMap: View {
     var body: some View {
-        MapView()
-            .edgesIgnoringSafeArea(.all)
+        BasicMapView()
+            .navigationTitle("Basic Map")
     }
 }
 
-struct MapView: UIViewRepresentable {
+struct BasicMapView: UIViewRepresentable {
   
     func makeUIView(context: Context) -> MGLMapView {
         // read the key from property list
-        let mapTilerKey = getMapTilerkey()
-        validateKey(mapTilerKey)
+        let mapTilerKey = Helper.getMapTilerkey()
+        Helper.validateKey(mapTilerKey)
         
         // Build the style url
         let styleURL = URL(string: "https://api.maptiler.com/maps/streets/style.json?key=\(mapTilerKey)")
@@ -36,36 +36,20 @@ struct MapView: UIViewRepresentable {
     
     func updateUIView(_ uiView: MGLMapView, context: Context) {}
     
-    func makeCoordinator() -> MapView.Coordinator {
+    func makeCoordinator() -> BasicMapView.Coordinator {
         Coordinator(self)
     }
     
     final class Coordinator: NSObject, MGLMapViewDelegate {
-        var control: MapView
+        var control: BasicMapView
         
-        init(_ control: MapView) {
+        init(_ control: BasicMapView) {
             self.control = control
         }
 
         func mapViewDidFinishLoadingMap(_ mapView: MGLMapView) {
             // write your custom code which will be executed
             // after map has been loaded
-        }
-    }
-    
-    func getMapTilerkey() -> String {
-        let mapTilerKey = Bundle.main.object(forInfoDictionaryKey: "MapTilerKey") as? String
-        validateKey(mapTilerKey)
-        return mapTilerKey!
-    }
-    
-    func validateKey(_ mapTilerKey: String?) {
-        if (mapTilerKey == nil) {
-            preconditionFailure("Failed to read MapTiler key from info.plist")
-        }
-        let result: ComparisonResult = mapTilerKey!.compare("placeholder", options: NSString.CompareOptions.caseInsensitive, range: nil, locale: nil)
-        if result == .orderedSame {
-            preconditionFailure("Please enter correct MapTiler key in info.plist[MapTilerKey] property")
         }
     }
 }
