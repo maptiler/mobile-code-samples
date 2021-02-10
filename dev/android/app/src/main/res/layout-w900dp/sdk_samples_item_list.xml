@@ -10,11 +10,7 @@
     android:divider="?android:attr/dividerHorizontal"
     android:orientation="horizontal"
     android:showDividers="middle"
-    tools:context=".SdkExampleListActivity">
-
-    <!--
-    This layout is a two-pane layout for the Items master/detail flow.
-    -->
+    tools:context=".SdkSamplesListActivity">
 
     <androidx.recyclerview.widget.RecyclerView xmlns:android="http://schemas.android.com/apk/res/android"
         xmlns:tools="http://schemas.android.com/tools"
@@ -25,13 +21,12 @@
         android:layout_marginLeft="16dp"
         android:layout_marginRight="16dp"
         app:layoutManager="LinearLayoutManager"
-        tools:context="com.maptiler.maplibresamples.SdkExampleListActivity"
-        tools:listitem="@layout/item_list_content" />
+        tools:context="com.maptiler.maplibresamples.SdkSamplesListActivity"
+        tools:listitem="@layout/item_sdk_sample_content" />
 
-    <FrameLayout
+    <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
         android:id="@+id/item_detail_container"
-        android:layout_width="0dp"
-        android:layout_height="match_parent"
-        android:layout_weight="3" />
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" />
 
 </LinearLayout>

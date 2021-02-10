@@ -16,7 +16,7 @@ android {
 
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
 
-        resValue "string", "mapTilerKey", "placeholder"
+        resValue "string", "mapTilerKey", "0yQuE2U15ztIZ2qNovfS"
     }
 
     buildTypes {
@@ -41,7 +41,7 @@ dependencies {
     implementation 'androidx.appcompat:appcompat:1.2.0'
     implementation 'com.google.android.material:material:1.2.1'
     implementation 'androidx.recyclerview:recyclerview:1.1.0'
-    implementation 'org.maplibre.gl:android-sdk:9.2.1'
+    implementation 'org.maplibre.gl:android-sdk:9.3.0'
     testImplementation 'junit:junit:4.+'
     androidTestImplementation 'androidx.test.ext:junit:1.1.2'
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.3.0'

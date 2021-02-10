@@ -2,35 +2,30 @@ package com.maptiler.maplibresamples
 
 import android.content.Intent
 import android.os.Bundle
-import androidx.core.widget.NestedScrollView
-import androidx.appcompat.app.AppCompatActivity
-import androidx.recyclerview.widget.RecyclerView
-import androidx.appcompat.widget.Toolbar
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
+import androidx.appcompat.app.AppCompatActivity
+import androidx.appcompat.widget.Toolbar
+import androidx.core.widget.NestedScrollView
 import androidx.fragment.app.Fragment
-
+import androidx.recyclerview.widget.RecyclerView
 import com.maptiler.maplibresamples.data.SdkExamples
 
-class SdkExampleListActivity : AppCompatActivity() {
+class SdkSamplesListActivity : AppCompatActivity() {
 
     private var twoPane: Boolean = false
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_sdk_example_list)
+        setContentView(R.layout.activity_sdk_sample_list)
 
         val toolbar = findViewById<Toolbar>(R.id.toolbar)
         setSupportActionBar(toolbar)
         toolbar.title = title
 
         if (findViewById<NestedScrollView>(R.id.item_detail_container) != null) {
-            // The detail container view will be present only in the
-            // large-screen layouts (res/values-w900dp).
-            // If this view is present, then the
-            // activity should be in two-pane mode.
             twoPane = true
         }
 
@@ -41,10 +36,12 @@ class SdkExampleListActivity : AppCompatActivity() {
         recyclerView.adapter = SimpleItemRecyclerViewAdapter(this, SdkExamples.ITEMS, twoPane)
     }
 
-    class SimpleItemRecyclerViewAdapter(private val parentActivity: SdkExampleListActivity,
-                                        private val values: List<SdkExamples.SdkSample>,
-                                        private val twoPane: Boolean) :
-            RecyclerView.Adapter<SimpleItemRecyclerViewAdapter.ViewHolder>() {
+    class SimpleItemRecyclerViewAdapter(
+        private val parentActivity: SdkSamplesListActivity,
+        private val values: List<SdkExamples.SdkSample>,
+        private val twoPane: Boolean
+    ) :
+        RecyclerView.Adapter<SimpleItemRecyclerViewAdapter.ViewHolder>() {
 
         private val onClickListener: View.OnClickListener
 
@@ -55,12 +52,12 @@ class SdkExampleListActivity : AppCompatActivity() {
                     val fragmentClass = item.targetFragment
                     val fragment = Class.forName(fragmentClass).newInstance() as Fragment
                     parentActivity.supportFragmentManager
-                            .beginTransaction()
-                            .replace(R.id.item_detail_container, fragment)
-                            .commit()
+                        .beginTransaction()
+                        .replace(R.id.item_detail_container, fragment)
+                        .commit()
                 } else {
-                    val intent = Intent(v.context, ExampleDetailActivity::class.java).apply {
-                        putExtra(ExampleDetailActivity.ARG_FRAGMENT_CLASS, item.targetFragment)
+                    val intent = Intent(v.context, SdkSampleActivity::class.java).apply {
+                        putExtra(SdkSampleActivity.ARG_FRAGMENT_CLASS, item.targetFragment)
                     }
                     v.context.startActivity(intent)
                 }
@@ -69,7 +66,7 @@ class SdkExampleListActivity : AppCompatActivity() {
 
         override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
             val view = LayoutInflater.from(parent.context)
-                    .inflate(R.layout.item_list_content, parent, false)
+                .inflate(R.layout.item_sdk_sample_content, parent, false)
             return ViewHolder(view)
         }
 

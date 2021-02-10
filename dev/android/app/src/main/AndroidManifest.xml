@@ -9,9 +9,12 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.MapLibreSamples">
-        <meta-data android:name="com.maptiler.maplibresamples.mapTilerKey" android:value="@string/mapTilerKey" />
+        <meta-data
+            android:name="com.maptiler.maplibresamples.mapTilerKey"
+            android:value="@string/mapTilerKey" />
+
         <activity
-            android:name=".SdkExampleListActivity"
+            android:name=".SdkSamplesListActivity"
             android:label="@string/app_name"
             android:theme="@style/Theme.MapLibreSamples.NoActionBar">
             <intent-filter>
@@ -21,13 +24,13 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".ExampleDetailActivity"
+            android:name=".SdkSampleActivity"
             android:label="@string/title_item_detail"
-            android:parentActivityName=".SdkExampleListActivity"
+            android:parentActivityName=".SdkSamplesListActivity"
             android:theme="@style/Theme.MapLibreSamples.NoActionBar">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
-                android:value="com.maptiler.maplibresamples.SdkExampleListActivity" />
+                android:value="com.maptiler.maplibresamples.SdkSamplesListActivity" />
         </activity>
     </application>
 
