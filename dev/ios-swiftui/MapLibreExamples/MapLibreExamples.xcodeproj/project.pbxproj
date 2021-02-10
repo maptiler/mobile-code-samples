@@ -14,7 +14,8 @@
 		4B40DF6525D325720027C4FD /* MapboxMobileEvents in Frameworks */ = {isa = PBXBuildFile; productRef = 4B40DF6425D325720027C4FD /* MapboxMobileEvents */; };
 		4B40DF6725D325720027C4FD /* Mapbox in Frameworks */ = {isa = PBXBuildFile; productRef = 4B40DF6625D325720027C4FD /* Mapbox */; };
 		4B40DF6A25D327AF0027C4FD /* Helper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B40DF6925D327AF0027C4FD /* Helper.swift */; };
-		4B40DF7625D32B8D0027C4FD /* radar.gif in Resources */ = {isa = PBXBuildFile; fileRef = 4B40DF7525D32B8D0027C4FD /* radar.gif */; };
+		4B423D9025D43009000221A7 /* LocationPermissions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B423D8F25D43009000221A7 /* LocationPermissions.swift */; };
+		4B423D9A25D44C5E000221A7 /* aerial_wgs84.png in Resources */ = {isa = PBXBuildFile; fileRef = 4B423D9925D44C5E000221A7 /* aerial_wgs84.png */; };
 		4BF26D4F25D1BB0000906A2F /* MapLibreExamplesApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BF26D4E25D1BB0000906A2F /* MapLibreExamplesApp.swift */; };
 		4BF26D5125D1BB0000906A2F /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BF26D5025D1BB0000906A2F /* ContentView.swift */; };
 		4BF26D5325D1BB0100906A2F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4BF26D5225D1BB0100906A2F /* Assets.xcassets */; };
@@ -27,7 +28,8 @@
 		4B40DF5D25D31F860027C4FD /* Annotations.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Annotations.swift; sourceTree = "<group>"; };
 		4B40DF6025D31F9A0027C4FD /* RasterOverlay.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RasterOverlay.swift; sourceTree = "<group>"; };
 		4B40DF6925D327AF0027C4FD /* Helper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Helper.swift; sourceTree = "<group>"; };
-		4B40DF7525D32B8D0027C4FD /* radar.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = radar.gif; sourceTree = "<group>"; };
+		4B423D8F25D43009000221A7 /* LocationPermissions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationPermissions.swift; sourceTree = "<group>"; };
+		4B423D9925D44C5E000221A7 /* aerial_wgs84.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = aerial_wgs84.png; sourceTree = "<group>"; };
 		4BF26D4B25D1BB0000906A2F /* MapLibreExamples.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MapLibreExamples.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		4BF26D4E25D1BB0000906A2F /* MapLibreExamplesApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapLibreExamplesApp.swift; sourceTree = "<group>"; };
 		4BF26D5025D1BB0000906A2F /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -52,7 +54,7 @@
 		4B40DF7425D32B400027C4FD /* Files */ = {
 			isa = PBXGroup;
 			children = (
-				4B40DF7525D32B8D0027C4FD /* radar.gif */,
+				4B423D9925D44C5E000221A7 /* aerial_wgs84.png */,
 			);
 			path = Files;
 			sourceTree = "<group>";
@@ -87,6 +89,7 @@
 				4B40DF5D25D31F860027C4FD /* Annotations.swift */,
 				4B40DF6025D31F9A0027C4FD /* RasterOverlay.swift */,
 				4B40DF6925D327AF0027C4FD /* Helper.swift */,
+				4B423D8F25D43009000221A7 /* LocationPermissions.swift */,
 			);
 			path = MapLibreExamples;
 			sourceTree = "<group>";
@@ -164,7 +167,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				4BF26D5625D1BB0100906A2F /* Preview Assets.xcassets in Resources */,
-				4B40DF7625D32B8D0027C4FD /* radar.gif in Resources */,
+				4B423D9A25D44C5E000221A7 /* aerial_wgs84.png in Resources */,
 				4BF26D5325D1BB0100906A2F /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -177,6 +180,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				4B40DF5825D31BD40027C4FD /* SdkSample.swift in Sources */,
+				4B423D9025D43009000221A7 /* LocationPermissions.swift in Sources */,
 				4B40DF6A25D327AF0027C4FD /* Helper.swift in Sources */,
 				4B40DF5B25D31F680027C4FD /* BasicMap.swift in Sources */,
 				4B40DF5E25D31F860027C4FD /* Annotations.swift in Sources */,

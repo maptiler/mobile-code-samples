@@ -11,30 +11,61 @@ print_usage () {
   printf "%s options \n" $0
   printf "%s\t%s\n" "-s" "Root source code folder"   
   printf "%s\t%s\n" "-t" "Root template folder"    
+  printf "%s\t%s\n" "-o" "The output folder"    
   printf "\n"
 }
 
-while getopts "s:t:" arg; do
+while getopts "s:t:o:" arg; do
   case $arg in
     s) SourceCodeDir=$OPTARG;;
-    t) WorkDir=$OPTARG;;
+    t) TemplateDir=$OPTARG;;
+    o) OutputDir=$OPTARG;;        
   esac
 done
 
-if [[ -z "$SourceCodeDir"  ]] || [[ -z "$WorkDir"  ]]; then
+if [[ -z "$SourceCodeDir"  ]] || [[ -z "$TemplateDir"  ]] || [[ -z "$OutputDir"  ]] ; then
     print_usage
     exit 0 
 fi
 
-TargetFilePath="$WorkDir/TUTORIAL.md"
-TemplateFilePath="$WorkDir/TUTORIAL_TEMPLATE.md"
-Tokens=$(sed -n 's/^.*snippet(\(.*\))$/\1/p' $TemplateFilePath)
+mkdir -p $OutputDir
+
+function renderTemplate() {
+  Tokens=$(sed -n 's/^.*snippet(\(.*\))$/\1/p' $TemplateFilePath)
+    
+  local FileName="${TemplateFilePath##*/}"
+  local TargetFilePath="$OutputDir/$FileName"
+  
+  echo "Target path:  $TargetFilePath"
+
+  cp $TemplateFilePath $TargetFilePath
+
+  if [[ -z "$Tokens" ]] ; then
+    echo "No tokens for replacement."
+  else
+    while IFS= read -r Token; do
+        echo "$Token"
+        Snippet=$(bin/code-snippets-extractor $SourceCodeDir $Token)
+        
+        if [[ -z "$Snippet" ]] ; then
+          echo "Could not find snippet for token $Token."
+          exit 1
+        fi
+
+        echo "$Snippet"
+
+        Template=$(cat $TargetFilePath)
+        echo "${Template//snippet($Token)/$Snippet}" > $TargetFilePath
+    done <<< "$Tokens"  
+  fi
+}
+
+echo "Processing templates in $TemplateDir"
+
+for TemplateFilePath in $TemplateDir/*.md; do
+    [ -f "$TemplateFilePath" ] || break
+    echo "Processing file: $TemplateFilePath"
+    renderTemplate 
+done
 
 
-cp $TemplateFilePath $TargetFilePath
-while IFS= read -r Token; do
-    echo "$Token"
-    Snippet=$(code-snippets-extractor $SourceCodeDir $Token)
-    Template=$(cat $TargetFilePath)
-    echo "${Template//snippet($Token)/$Snippet}" > $TargetFilePath
-done <<< "$Tokens"

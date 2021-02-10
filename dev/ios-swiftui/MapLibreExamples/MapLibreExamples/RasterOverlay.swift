@@ -11,7 +11,6 @@ struct RasterOverlay: View {
 struct MapWithRasterOverlay: UIViewRepresentable {
   
     func makeUIView(context: Context) -> MGLMapView {
-        // read the key from property list
         let mapTilerKey = Helper.getMapTilerkey()
         Helper.validateKey(mapTilerKey)
         
@@ -20,7 +19,8 @@ struct MapWithRasterOverlay: UIViewRepresentable {
         
         // create the mapview
         let mapView = MGLMapView(frame: .zero, styleURL: styleURL)
-        mapView.setCenter(CLLocationCoordinate2D(latitude: 43.457, longitude: -75.789), zoomLevel: 4, animated: false)
+        mapView.setCenter(CLLocationCoordinate2D(latitude: 50.90013625, longitude: 4.64086758), zoomLevel: 17, animated: false)
+        
         mapView.autoresizingMask = [.flexibleWidth, .flexibleHeight]
         mapView.tintColor = .darkGray
         
@@ -44,29 +44,29 @@ struct MapWithRasterOverlay: UIViewRepresentable {
             self.control = control
         }
 
-        func mapViewDidFinishLoadingMap(_ mapView: MGLMapView) {
-            // write your custom code which will be executed
-            // after map has been loaded
-        }
-        
         func mapView(_ mapView: MGLMapView, didFinishLoading style: MGLStyle) {
             
             // Set the coordinate bounds for the raster image.
+            // snippet(SetRasterCoordinates)
             let coordinates = MGLCoordinateQuad(
-                topLeft: CLLocationCoordinate2D(latitude: 46.437, longitude: -80.425),
-                bottomLeft: CLLocationCoordinate2D(latitude: 37.936, longitude: -80.425),
-                bottomRight: CLLocationCoordinate2D(latitude: 37.936, longitude: -71.516),
-                topRight: CLLocationCoordinate2D(latitude: 46.437, longitude: -71.516))
+                topLeft: CLLocationCoordinate2D(latitude: 50.900867668253724, longitude: 4.639663696289062),
+                bottomLeft: CLLocationCoordinate2D(latitude: 50.89935199434383, longitude: 4.639663696289062),
+                bottomRight: CLLocationCoordinate2D(latitude: 50.89935199434383, longitude: 4.642066955566406),
+                topRight: CLLocationCoordinate2D(latitude: 50.900867668253724, longitude: 4.642066955566406))
             
             // Create an MGLImageSource, used to add georeferenced raster images to a map.
-            if let radarImage = UIImage(named: "radar.gif") {
-                let source = MGLImageSource(identifier: "radar", coordinateQuad: coordinates, image: radarImage)
+            if let radarImage = UIImage(named: "aerial_wgs84.png") {
+                
+                // snippet(CreateImageSource)
+                let source = MGLImageSource(identifier: "aerial-image", coordinateQuad: coordinates, image: radarImage)
                 style.addSource(source)
 
                 // Create a raster layer from the MGLImageSource.
-                let radarLayer = MGLRasterStyleLayer(identifier: "radar-layer", source: source)
+                // snippet(CreateRasterLayer)
+                let radarLayer = MGLRasterStyleLayer(identifier: "aerial-image-layer", source: source)
 
                 // Insert the raster layer below the map's symbol layers.
+                // snippet(InsertRasterLayer)
                 for layer in style.layers.reversed() {
                     if !layer.isKind(of: MGLSymbolStyleLayer.self) {
                         style.insertLayer(radarLayer, above: layer)
